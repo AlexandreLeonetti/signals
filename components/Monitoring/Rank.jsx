@@ -4,16 +4,13 @@ import Ranked from "./Ranked";
 const Rank = ({ rankElts, what }) => {
 	const [values, setValues] = useState(null);
 	useEffect(() => {
-		let someElts = JSON.parse(JSON.stringify(rankElts));
-
-		console.log("in Rank", what);
+		let someElts = JSON.parse(JSON.stringify(rankElts)); // deep copy
         
 		let sortedRank = someElts.sort((a, b) => {
             return b[what] - a[what];
         });
 
 		setValues(sortedRank);
-		console.log(someElts);
 	}, []);
 
 	return (
